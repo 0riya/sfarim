@@ -92,11 +92,9 @@ class _UserbookState extends State<Userbook> {
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.black, width: 2),
                 ),
-                child: Positioned.fill(
-                  child: Hero(
-                    tag: "coverhero${widget.id}",
-                    child: Image.network(widget.initimageurl, fit: BoxFit.fill),
-                  ),
+                child: Hero(
+                  tag: "coverhero${widget.id}",
+                  child: Image.network(widget.initimageurl, fit: BoxFit.fill),
                 ),
               ),
               SizedBox(width: 80),
@@ -119,26 +117,19 @@ class _UserbookState extends State<Userbook> {
           ),
           Padding(
             padding: const EdgeInsets.only(top: 20),
-            child: Stack(
-              children: [
-                Container(
-                  width: double.infinity,
-                  height: 50,
-                  color: Color.fromARGB(200, 194, 194, 194),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 5),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children:
-              [
-              ],
-                  ),
-                ),
-              ],
+            child: Container(
+              width: double.infinity,
+              height: 50,
+              color: Color.fromARGB(200, 194, 194, 194),
+              child:                Padding(
+              padding: const EdgeInsets.only(top: 5),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:
+                          [],),),
             ),
-          ),    
+          ),
           (isloaded)
               ? Expanded(
                   child: ListView.builder(
