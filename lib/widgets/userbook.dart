@@ -121,7 +121,7 @@ class _UserbookState extends State<Userbook> {
             padding: const EdgeInsets.only(top: 20),
             child: Stack(
               children: [
-                Ink(
+                Container(
                   width: double.infinity,
                   height: 50,
                   color: Color.fromARGB(200, 194, 194, 194),
