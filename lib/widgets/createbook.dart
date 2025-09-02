@@ -176,154 +176,155 @@ class _CreatebookState extends State<Createbook> {
         ),
       ),
 
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 60),
-            child: SizedBox(
-              height: 100,
-              width: 400,
-              child: TextFormField(
-                controller: titlecontroller,
-                style: TextStyle(fontSize: 20),
-                keyboardType: TextInputType.multiline,
-                maxLines: null,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  hint: Text("enter title", style: TextStyle(fontSize: 20)),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 60),
+              child: SizedBox(
+                height: 100,
+                width: 400,
+                child: TextFormField(
+                  controller: titlecontroller,
+                  style: TextStyle(fontSize: 20),
+                  keyboardType: TextInputType.multiline,
+                  maxLines: null,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hint: Text("enter title", style: TextStyle(fontSize: 20)),
+                  ),
                 ),
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 60),
-            child: Row(
-              children: [
-                Container(
-                  decoration: BoxDecoration(border: Border.all(width: 2)),
-                  height: 600,
-                  width: 375,
-                  child: Stack(
-                    children: [
-                      (imageurl == "image")
-                          ? Ink(
-                              color: Colors.lightBlueAccent,
-                              child: Center(
-                                child: Icon(Icons.add, color: Colors.white),
-                              ),
-                            )
-                          : Positioned.fill(
-                              child: Hero(
-                                tag: "coverhero${widget.id}",
-                                child: Image.network(
-                                  imageurl,
-                                  fit: BoxFit.fill,
+            Padding(
+              padding: const EdgeInsets.only(left: 60),
+              child: Row(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(border: Border.all(width: 2)),
+                    height: 600,
+                    width: 375,
+                    child: Stack(
+                      children: [
+                        (imageurl == "image")
+                            ? Ink(
+                                color: Colors.lightBlueAccent,
+                                child: Center(
+                                  child: Icon(Icons.add, color: Colors.white),
+                                ),
+                              )
+                            : Positioned.fill(
+                                child: Hero(
+                                  tag: "coverhero${widget.id}",
+                                  child: Image.network(
+                                    imageurl,
+                                    fit: BoxFit.fill,
+                                  ),
                                 ),
                               ),
+                        Positioned.fill(
+                          child: Material(
+                            color: Colors.transparent,
+                            child: InkWell(
+                              onTap: () {
+                                imagepick();
+                              },
                             ),
-                      Positioned.fill(
-                        child: Material(
-                          color: Colors.transparent,
-                          child: InkWell(
-                            onTap: () {
-                              imagepick();
-                            },
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-                SizedBox(width: 60),
-                SizedBox(
-                  height: 600,
-                  width: 500,
-                  child: TextFormField(
-                    controller: desccontroller,
-                    style: TextStyle(fontSize: 20),
-                    keyboardType: TextInputType.multiline,
-                    maxLines: 26,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      hint: Text(
-                        "enter description",
-                        style: TextStyle(fontSize: 20),
+                  SizedBox(width: 60),
+                  SizedBox(
+                    height: 600,
+                    width: 500,
+                    child: TextFormField(
+                      controller: desccontroller,
+                      style: TextStyle(fontSize: 20),
+                      keyboardType: TextInputType.multiline,
+                      maxLines: 26,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        hint: Text(
+                          "enter description",
+                          style: TextStyle(fontSize: 20),
+                        ),
                       ),
                     ),
                   ),
-                ),
-                TextButton(
-                  onPressed: addNovel,
-                  child: Text("save", style: TextStyle(fontSize: 20)),
-                ),
-              ],
+                  TextButton(
+                    onPressed: addNovel,
+                    child: Text("save", style: TextStyle(fontSize: 20)),
+                  ),
+                ],
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 20),
-            child: Stack(
-              children: [
-                Ink(
-                  width: double.infinity,
-                  height: 50,
-                  color: Color.fromARGB(200, 194, 194, 194),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 5),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      IconButton(
-                        onPressed: () {
-                          addNovel();
-                          Navigator.push(
-                            context,
-                            Myroute(
-                              builder: (context) => Chaptereditor(
-                                id: bookid,
-                                initchapterid: "none",
-                                isuser: false,
-                                json: '[{"insert":"\\n"}]',
-                                desc: desc,
-                                title: title,
-                                imageurl: imageurl,
+            Padding(
+              padding: const EdgeInsets.only(top: 20),
+              child: Stack(
+                children: [
+                  Ink(
+                    width: double.infinity,
+                    height: 50,
+                    color: Color.fromARGB(200, 194, 194, 194),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 5),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        IconButton(
+                          onPressed: () {
+                            addNovel();
+                            Navigator.push(
+                              context,
+                              Myroute(
+                                builder: (context) => Chaptereditor(
+                                  id: bookid,
+                                  initchapterid: "none",
+                                  isuser: false,
+                                  json: '[{"insert":"\\n"}]',
+                                  desc: desc,
+                                  title: title,
+                                  imageurl: imageurl,
+                                ),
                               ),
-                            ),
-                          );
-                        },
-                        style: ButtonStyle(
-                          backgroundColor: WidgetStatePropertyAll(Colors.white),
+                            );
+                          },
+                          style: ButtonStyle(
+                            backgroundColor: WidgetStatePropertyAll(Colors.white),
+                          ),
+                          icon: Icon(Icons.add),
                         ),
-                        icon: Icon(Icons.add),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          (isloaded)
-              ? Expanded(
-                  child: ListView.builder(
-                    itemCount: items.length,
-                    itemBuilder: (context, index) {
-                      return Chapterbutton(
-                        isuser: false,
-                        id: bookid,
-                        chapterid: items[index]['chapterid'],
-                        json: items[index]['json'],
-                        number: items[index]['number'],
-                        desc: desc,
-                        title: title,
-                        imageurl: imageurl,
-                      );
-                    },
-                  ),
+            (isloaded)
+                ? ListView.builder(
+                  shrinkWrap:true,
+                  itemCount: items.length,
+                  itemBuilder: (context, index) {
+                    return Chapterbutton(
+                      isuser: false,
+                      id: bookid,
+                      chapterid: items[index]['chapterid'],
+                      json: items[index]['json'],
+                      number: items[index]['number'],
+                      desc: desc,
+                      title: title,
+                      imageurl: imageurl,
+                    );
+                  },
                 )
-              : const Text("loading...", style: TextStyle(fontSize: 32)),
-        ],
+                : const Text("loading...", style: TextStyle(fontSize: 32)),
+          ],
+        ),
       ),
     );
   }

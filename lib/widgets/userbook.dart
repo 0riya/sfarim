@@ -65,91 +65,91 @@ class _UserbookState extends State<Userbook> {
         ),
       ),
 
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        spacing: 10,
-        children: [
-          Container(
-            height: 100,
-            width: 400,
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.black, width: 2),
-            ),
-            child: AutoSizeText(
-              widget.inittitle,
-              softWrap: true,
-              overflow: TextOverflow.ellipsis,
-              minFontSize: 16,
-              maxLines: 4,
-              style: TextStyle(fontSize: 18, color: Colors.black),
-            ),
-          ),
-          Row(
-            children: [
-              Container(
-                height: 600,
-                width: 375,
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.black, width: 2),
-                ),
-                child: Hero(
-                  tag: "coverhero${widget.id}",
-                  child: Image.network(widget.initimageurl, fit: BoxFit.fill),
-                ),
+      body: SingleChildScrollView (
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              height: 100,
+              width: 400,
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.black, width: 2),
               ),
-              SizedBox(width: 80),
-              Container(
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.black, width: 2),
-                ),
-                height: 600,
-                width: 500,
-                child: AutoSizeText(
-                  widget.initdesc,
-                  softWrap: true,
-                  overflow: TextOverflow.ellipsis,
-                  minFontSize: 16,
-                  maxLines: 4,
-                  style: TextStyle(fontSize: 18, color: Colors.black),
-                ),
+              child: AutoSizeText(
+                widget.inittitle,
+                softWrap: true,
+                overflow: TextOverflow.ellipsis,
+                minFontSize: 16,
+                maxLines: 4,
+                style: TextStyle(fontSize: 18, color: Colors.black),
               ),
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 20),
-            child: Container(
-              width: double.infinity,
-              height: 50,
-              color: Color.fromARGB(200, 194, 194, 194),
-              child:                Padding(
-              padding: const EdgeInsets.only(top: 5),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children:
-                          [],),),
             ),
-          ),
-          (isloaded)
-              ? Expanded(
-                  child: ListView.builder(
-                    itemCount: items.length,
-                    itemBuilder: (context, index) {
-                      return Chapterbutton(
-                        isuser: true,
-                        id: widget.id,
-                        chapterid: items[index]['chapterid'],
-                        json: items[index]['json'],
-                        number: items[index]['number'],
-                        desc: widget.initdesc,
-                        title: widget.inittitle,
-                        imageurl: widget.initimageurl,
-                      );
-                    },
+            Row(
+              children: [
+                Container(
+                  height: 600,
+                  width: 375,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black, width: 2),
                   ),
+                  child: Hero(
+                    tag: "coverhero${widget.id}",
+                    child: Image.network(widget.initimageurl, fit: BoxFit.fill),
+                  ),
+                ),
+                SizedBox(width: 80),
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black, width: 2),
+                  ),
+                  height: 600,
+                  width: 500,
+                  child: AutoSizeText(
+                    widget.initdesc,
+                    softWrap: true,
+                    overflow: TextOverflow.ellipsis,
+                    minFontSize: 16,
+                    maxLines: 4,
+                    style: TextStyle(fontSize: 18, color: Colors.black),
+                  ),
+                ),
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 20),
+              child: Container(
+                width: double.infinity,
+                height: 50,
+                color: Color.fromARGB(200, 194, 194, 194),
+                child:                Padding(
+                padding: const EdgeInsets.only(top: 5),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children:
+                            [],),),
+              ),
+            ),
+            (isloaded)
+                ? ListView.builder(
+                  shrinkWrap:true,
+                  itemCount: items.length,
+                  itemBuilder: (context, index) {
+                    return Chapterbutton(
+                      isuser: true,
+                      id: widget.id,
+                      chapterid: items[index]['chapterid'],
+                      json: items[index]['json'],
+                      number: items[index]['number'],
+                      desc: widget.initdesc,
+                      title: widget.inittitle,
+                      imageurl: widget.initimageurl,
+                    );
+                  },
                 )
-              : const Text("loading...", style: TextStyle(fontSize: 32)),
-        ],
+                : const Text("loading...", style: TextStyle(fontSize: 32)),
+          ],
+        ),
       ),
     );
   }
