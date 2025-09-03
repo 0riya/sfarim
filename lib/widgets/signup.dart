@@ -26,7 +26,7 @@ class _SignUpState extends State<SignUp> {
               TextField(decoration:InputDecoration(border:OutlineInputBorder(borderRadius:BorderRadius.circular(10)),hintText:"Enter your email"),controller:email,),
               SizedBox(height:10),
               TextField(decoration:InputDecoration(border: OutlineInputBorder(borderRadius:BorderRadius.circular(10)),hintText:"Enter your password"),controller:password,),
-              TextButton(onPressed:(){Authservice().register(email: email.text, password: password.text);Navigator.push(context, MaterialPageRoute(builder: (context) => const MyTab()));}, child: const Text("Sign up")),
+              TextButton(onPressed:(){Authservice().register(email: email.text, password: password.text);Authservice().login(email: email.text,password: password.text);  Navigator.push(context, MaterialPageRoute(builder: (context) => const MyTab()));}, child: const Text("Sign up")),
             ]
           ),
         ))
