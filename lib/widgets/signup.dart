@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/widgets/account.dart';
 import 'package:flutter_application_1/widgets/authservice.dart';
+import 'package:flutter_application_1/widgets/tabbar.dart';
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
 
@@ -26,7 +26,7 @@ class _SignUpState extends State<SignUp> {
               TextField(decoration:InputDecoration(border:OutlineInputBorder(borderRadius:BorderRadius.circular(10)),hintText:"Enter your email"),controller:email,),
               SizedBox(height:10),
               TextField(decoration:InputDecoration(border: OutlineInputBorder(borderRadius:BorderRadius.circular(10)),hintText:"Enter your password"),controller:password,),
-              TextButton(onPressed:(){Authservice().register(email: email.text, password: password.text);Navigator.push(context, MaterialPageRoute(builder: (context) => const AccountPage()));}, child: const Text("Sign up")),
+              TextButton(onPressed:(){Authservice().register(email: email.text, password: password.text);Navigator.push(context, MaterialPageRoute(builder: (context) => const MyTab()));}, child: const Text("Sign up")),
             ]
           ),
         ))

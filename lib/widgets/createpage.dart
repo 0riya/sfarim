@@ -40,7 +40,7 @@ class _CreatepageState extends State<Createpage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("your works:")),
+      appBar: AppBar(title: Text("your works:"), automaticallyImplyLeading:false),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(
