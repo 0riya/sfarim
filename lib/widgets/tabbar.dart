@@ -24,7 +24,7 @@ class MyTab extends StatelessWidget {
         ),
         body: TabBarView(
           children: [
-            ExplorePage (),
+            ExplorePage(),
             AccountPage(),
             CreatorPage(),
           ],
